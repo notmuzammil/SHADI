@@ -5,55 +5,55 @@ const vendors = [
     {
         name: "Royal Marquee Hall",
         image:
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-        location: "DHA, Karachi",
-        rating: 4.8,
-        price: "PKR 250,000+",
-        featured: true,
-    },
-    {
-        name: "Blossom Banquet",
-        image:
-            "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80",
-        location: "Clifton, Karachi",
-        rating: 4.6,
-        price: "PKR 180,000+",
-        featured: false,
-    },
-    {
-        name: "Gardenia Farmhouse",
-        image:
-            "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80",
-        location: "Malir, Karachi",
-        rating: 4.9,
-        price: "PKR 300,000+",
-        featured: true,
-    },
-    {
-        name: "Pearl Palace",
-        image:
-            "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
-        location: "Gulshan, Karachi",
-        rating: 4.7,
-        price: "PKR 220,000+",
-        featured: false,
-    },
-    {
-        name: "Sunset Gardens",
-        image:
-            "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+            "https://i.ytimg.com/vi/bsfYK0LdV8o/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA8MvgCplqpumZwkqYGk-FuqGhXKw",
         location: "Korangi, Karachi",
-        rating: 4.5,
-        price: "PKR 170,000+",
+        rating: 4.8,
+        price: "PKR 200K",
+        featured: true,
+    },
+    {
+        name: "Courtyard Banquet",
+        image:
+            "https://nikaah.pk/wp-content/uploads/2022/12/2019-04-23.jpg",
+        location: "Bahadurabad, Karachi",
+        rating: 4.6,
+        price: "PKR 1M+",
         featured: false,
     },
     {
-        name: "Elite Events",
+        name: "Mansion Marquee",
         image:
-            "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80",
-        location: "Nazimabad, Karachi",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-m9B8RJh_MoERDkre_e6iy4OGozqpoexWA&s",
+        location: "Sharah-e-Faisal, Karachi",
+        rating: 4.9,
+        price: "PKR 1.3M",
+        featured: true,
+    },
+    {
+        name: "Iconic Marquee",
+        image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvmFuTa49PdTkhx2QKGAJVRTkChqHEiCN41g&s0&q=80",
+        location: "Gulistan-e-Johar, Karachi",
+        rating: 4.7,
+        price: "PKR 180K",
+        featured: false,
+    },
+    {
+        name: "The Venue",
+        image:
+            "https://i.ytimg.com/vi/1c1g5ZhMRU8/maxresdefault.jpg",
+        location: "Askari-4, Karachi",
+        rating: 4.5,
+        price: "PKR 800K",
+        featured: false,
+    },
+    {
+        name: "The Palm Banquet",
+        image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi6itJX5bcTm7ihgeQqLDSMAzKej7I93GAJA&s",
+        location: "Clifton block 1, Karachi",
         rating: 4.8,
-        price: "PKR 260,000+",
+        price: "PKR 1.5M",
         featured: true,
     },
 ];
@@ -122,7 +122,7 @@ export default function Home(props) {
                             <Sparkles size={18} className="absolute -top-2 -right-2 text-pink-300" />
                         </span>
                     </span>
-                    <span className="text-3xl font-playfair text-gray-800 tracking-tight drop-shadow">ShaadiHub Karachi</span>
+                    <span className="text-3xl font-playfair text-gray-800 tracking-tight drop-shadow">Aasaan Shaadi</span>
                 </div>
                 <div className="hidden md:flex gap-6 font-inter text-gray-700 text-lg">
                     <a href="#vendors" className="relative px-4 py-2 rounded-full transition-all duration-200 hover:bg-rose-100/70 hover:text-rose-500 focus:bg-rose-200/80 focus:text-rose-600 group">
@@ -279,8 +279,8 @@ export default function Home(props) {
                     </div>
                 </div>
             </section>
-            {/* Vendor Cards Section - dark theme */}
-            <section id="vendors" className="max-w-7xl mx-auto px-6 py-16 bg-gradient-to-br from-emerald-900 via-black to-zinc-900 rounded-3xl shadow-xl mt-12">
+            {/* Vendor Cards Section - off-white theme */}
+            <section id="vendors" className="max-w-7xl mx-auto px-6 py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl shadow-xl mt-12">
                 <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-400 via-pink-200 to-pink-500 bg-clip-text text-transparent shimmer-gold">
                     Featured Vendors
                 </h2>
@@ -381,11 +381,11 @@ export default function Home(props) {
                             </div>
                             <div className="flex items-center gap-2 text-lg font-inter text-[#800000]">
                                 <svg xmlns='http://www.w3.org/2000/svg' className='inline-block' width='22' height='22' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 12v1a4 4 0 01-8 0v-1m8 0a4 4 0 00-8 0m8 0V8a4 4 0 00-8 0v4m8 0H8' /></svg>
-                                <span>info@shaadihubkarachi.com</span>
+                                <span>info@AasaanShadi.pk</span>
                             </div>
                             <div className="flex items-center gap-2 text-lg font-inter text-[#800000]">
                                 <svg xmlns='http://www.w3.org/2000/svg' className='inline-block' width='22' height='22' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm0 8a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2zm8-8a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zm0 8a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2zm0 8a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' /></svg>
-                                <span>+92 300 1234567</span>
+                                <span>+92 332 2726688</span>
                             </div>
                         </div>
                         <div className="flex flex-col gap-4 items-end">
