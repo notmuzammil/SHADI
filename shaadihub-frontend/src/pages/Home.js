@@ -58,6 +58,69 @@ const vendors = [
     },
 ];
 
+const cateringVendors = [
+    {
+        name: "Royal Catering Services",
+        image:
+            "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80",
+        location: "DHA, Karachi",
+        rating: 4.9,
+        price: "PKR 500/plate",
+        cuisine: "Pakistani, Continental",
+        featured: true,
+    },
+    {
+        name: "Spice Garden Catering",
+        image:
+            "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=600&q=80",
+        location: "Clifton, Karachi",
+        rating: 4.7,
+        price: "PKR 450/plate",
+        cuisine: "Pakistani, Chinese",
+        featured: true,
+    },
+    {
+        name: "Elite Banquet Catering",
+        image:
+            "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=600&q=80",
+        location: "Gulshan-e-Iqbal, Karachi",
+        rating: 4.8,
+        price: "PKR 600/plate",
+        cuisine: "Pakistani, BBQ",
+        featured: false,
+    },
+    {
+        name: "Taste of Karachi",
+        image:
+            "https://images.unsplash.com/photo-1504674900242-87fec7f3f8b9?auto=format&fit=crop&w=600&q=80",
+        location: "Bahadurabad, Karachi",
+        rating: 4.6,
+        price: "PKR 400/plate",
+        cuisine: "Pakistani, Biryani",
+        featured: true,
+    },
+    {
+        name: "Luxury Catering Co.",
+        image:
+            "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80",
+        location: "Defence, Karachi",
+        rating: 4.9,
+        price: "PKR 700/plate",
+        cuisine: "Pakistani, Continental, BBQ",
+        featured: false,
+    },
+    {
+        name: "Traditional Delights",
+        image:
+            "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?auto=format&fit=crop&w=600&q=80",
+        location: "Korangi, Karachi",
+        rating: 4.5,
+        price: "PKR 350/plate",
+        cuisine: "Pakistani, Traditional",
+        featured: false,
+    },
+];
+
 const testimonials = [
     {
         name: "Ayesha & Bilal",
@@ -182,7 +245,7 @@ export default function Home(props) {
                     </p>
                     {/* Search Bar with Label */}
                     <div className="w-full max-w-lg mx-auto mb-6">
-                        <label htmlFor="hero-search" className="block text-lg font-inter font-semibold mb-2 text-left" style={{ color: '#fffbe6' }}>Find venues, caterers, planners, and more:</label>
+                        <label htmlFor="hero-search" className="block text-lg font-inter font-semibold mb-2 text-left text-red-800">Find venues, caterers, planners, and more:</label>
                         <div className="flex gap-4">
                             <input
                                 id="hero-search"
@@ -195,31 +258,34 @@ export default function Home(props) {
                             </button>
                         </div>
                     </div>
-                    {/* CTA Button */}
-                    <a href="#vendors" className="mb-8 inline-block bg-white border border-pink-300 text-emerald-900 font-bold px-8 py-3 rounded-full shadow hover:bg-pink-50 transition font-inter text-lg">Explore Vendors</a>
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#vendors" className="inline-block bg-white border border-pink-300 text-emerald-900 font-bold px-8 py-3 rounded-full shadow hover:bg-pink-50 transition font-inter text-lg">Explore Vendors</a>
+                        <a href="#catering" className="inline-block bg-white border border-pink-300 text-emerald-900 font-bold px-8 py-3 rounded-full shadow hover:bg-pink-50 transition font-inter text-lg">Explore Catering</a>
+                    </div>
                     {/* Why ShaadiHub Row */}
                     <div className="w-full flex flex-col md:flex-row justify-center items-center gap-6 mt-2">
                         <div className="flex flex-col items-center">
-                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-500 shadow mb-1">
-                                <BadgeCheck size={28} color="black" />
+                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow mb-1">
+                                <BadgeCheck size={28} color="#dc2626" />
                             </span>
                             <span className="font-inter text-red-800 text-sm md:text-base font-semibold">Verified Vendors</span>
                         </div>
                         <div className="flex flex-col items-center">
-                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-500 shadow mb-1">
-                                <MessageSquare size={28} color="black" />
+                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow mb-1">
+                                <MessageSquare size={28} color="#dc2626" />
                             </span>
                             <span className="font-inter text-red-800 text-sm md:text-base font-semibold">Real Reviews</span>
                         </div>
                         <div className="flex flex-col items-center">
-                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-500 shadow mb-1">
-                                <CalendarCheck size={28} color="black" />
+                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow mb-1">
+                                <CalendarCheck size={28} color="#dc2626" />
                             </span>
                             <span className="font-inter text-red-800 text-sm md:text-base font-semibold">Easy Booking</span>
                         </div>
                         <div className="flex flex-col items-center">
-                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-500 shadow mb-1">
-                                <Sparkles size={28} color="black" />
+                            <span className="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow mb-1">
+                                <Sparkles size={28} color="#dc2626" />
                             </span>
                             <span className="font-inter text-red-800 text-sm md:text-base font-semibold">Local Experts</span>
                         </div>
@@ -232,11 +298,11 @@ export default function Home(props) {
             </div>
             {/* Popular Categories Section - dark theme */}
             <section className="max-w-5xl mx-auto px-6 py-12 bg-white/30 backdrop-blur-lg rounded-3xl shadow-xl mt-12 border border-pink-300">
-                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-400 via-pink-200 to-pink-500 bg-clip-text text-transparent shimmer-gold">Popular Categories</h2>
+                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-900 via-pink-800 to-pink-700 bg-clip-text text-transparent shimmer-gold">Popular Categories</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 justify-items-stretch place-items-center">
                     {categories.map((cat, i) => (
                         <div key={cat.name} className="flex flex-col items-center group w-full">
-                            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-pink-500 text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-white">
+                            <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-pink-300">
                                 {cat.icon}
                             </div>
                             <span className="mt-2 text-lg font-inter font-semibold text-red-800 group-hover:text-red-600 transition-colors text-center w-full">{cat.name}</span>
@@ -260,28 +326,28 @@ export default function Home(props) {
                         </linearGradient>
                     </defs>
                 </svg>
-                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-400 via-pink-200 to-pink-500 bg-clip-text text-transparent shimmer-gold">Why Choose ShaadiHub?</h2>
+                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-900 via-pink-800 to-pink-700 bg-clip-text text-transparent shimmer-gold">Why Choose ShaadiHub?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
                     <div className="flex flex-col items-center">
                         <BadgeCheck size={40} className="icon-gold mb-4" />
                         <h3 className="font-bold text-lg mb-2 font-playfair text-white">Curated Vendors</h3>
-                        <p className="text-gray-200 font-inter">Only the best, verified vendors for your big day. Quality and trust, guaranteed.</p>
+                        <p className="text-red-800 font-inter">Only the best, verified vendors for your big day. Quality and trust, guaranteed.</p>
                     </div>
                     <div className="flex flex-col items-center">
                         <Users size={40} className="icon-gold mb-4" />
                         <h3 className="font-bold text-lg mb-2 font-playfair text-white">Personalized Support</h3>
-                        <p className="text-gray-200 font-inter">Our team is here to help you at every step, from planning to celebration.</p>
+                        <p className="text-red-800 font-inter">Our team is here to help you at every step, from planning to celebration.</p>
                     </div>
                     <div className="flex flex-col items-center">
                         <Sparkles size={40} className="icon-gold mb-4" />
                         <h3 className="font-bold text-lg mb-2 font-playfair text-white">Unique Experience</h3>
-                        <p className="text-gray-200 font-inter">Modern, interactive, and beautiful—just like your wedding should be.</p>
+                        <p className="text-red-800 font-inter">Modern, interactive, and beautiful—just like your wedding should be.</p>
                     </div>
                 </div>
             </section>
             {/* Vendor Cards Section - off-white theme */}
             <section id="vendors" className="max-w-7xl mx-auto px-6 py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl shadow-xl mt-12">
-                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-400 via-pink-200 to-pink-500 bg-clip-text text-transparent shimmer-gold">
+                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-900 via-pink-800 to-pink-700 bg-clip-text text-transparent shimmer-gold">
                     Featured Vendors
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -324,9 +390,54 @@ export default function Home(props) {
                     <a href="#" className="bg-gradient-to-r from-pink-400 to-pink-500 text-emerald-900 font-bold px-8 py-3 rounded-full shadow hover:scale-105 transition-transform border border-pink-300 font-inter">See All Vendors</a>
                 </div>
             </section>
+            {/* Featured Catering Section */}
+            <section id="catering" className="max-w-7xl mx-auto px-6 py-16 bg-gradient-to-br from-gray-50 via-white to-gray-100 rounded-3xl shadow-xl mt-12">
+                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-900 via-pink-800 to-pink-700 bg-clip-text text-transparent shimmer-gold">
+                    Featured Catering Services
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                    {cateringVendors.map((vendor, idx) => (
+                        <div
+                            key={idx}
+                            className="relative bg-zinc-900 rounded-3xl shadow-xl hover:shadow-amber-200 transition-shadow duration-300 overflow-hidden group cursor-pointer border border-pink-300 transform hover:-translate-y-2 hover:scale-105 transition-all duration-300 animate-fade-in"
+                        >
+                            {vendor.featured && (
+                                <span className="absolute top-4 left-4 bg-gradient-to-r from-pink-400 to-pink-500 text-emerald-900 text-xs font-bold px-3 py-1 rounded-full shadow border border-pink-300 z-20">
+                                    Featured
+                                </span>
+                            )}
+                            <div className="relative h-56 overflow-hidden">
+                                <img
+                                    src={vendor.image}
+                                    alt={vendor.name}
+                                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
+                                />
+                                <div className="absolute top-2 right-2 bg-white/80 rounded-full px-3 py-1 text-xs font-semibold text-emerald-900 shadow">
+                                    {vendor.rating} ★
+                                </div>
+                            </div>
+                            <div className="p-6 flex flex-col gap-2">
+                                <h3 className="text-xl font-playfair font-bold text-white mb-1">
+                                    {vendor.name}
+                                </h3>
+                                <div className="text-gray-300 mb-1 font-inter">{vendor.location}</div>
+                                <div className="text-pink-500 font-semibold mb-3 font-inter">
+                                    {vendor.price}
+                                </div>
+                                <button className="w-full bg-white text-emerald-900 py-2 rounded-lg font-semibold shadow hover:scale-105 transition-transform font-inter border-2 border-pink-300">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className="flex justify-center mt-10">
+                    <a href="#" className="bg-gradient-to-r from-pink-400 to-pink-500 text-emerald-900 font-bold px-8 py-3 rounded-full shadow hover:scale-105 transition-transform border border-pink-300 font-inter">See All Catering Services</a>
+                </div>
+            </section>
             {/* Testimonials Section */}
             <section id="testimonials" className="max-w-4xl mx-auto px-6 py-16">
-                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-rose-500 via-pink-400 to-red-500 bg-clip-text text-transparent shimmer-gold">What Couples Say</h2>
+                <h2 className="text-3xl font-playfair font-bold mb-8 text-center bg-gradient-to-r from-pink-900 via-pink-800 to-pink-700 bg-clip-text text-transparent shimmer-gold">What Couples Say</h2>
                 <div className="relative bg-gradient-to-br from-rose-100 via-pink-100 to-red-200 rounded-3xl shadow-xl p-10 flex flex-col items-center text-center animate-fade-in">
                     <img src={testimonials[testimonialIdx].image} alt={testimonials[testimonialIdx].name} className="w-20 h-20 rounded-full border-4 border-rose-200 mb-4 object-cover" />
                     <blockquote className="text-xl text-gray-700 font-inter mb-4">“{testimonials[testimonialIdx].quote}”</blockquote>
