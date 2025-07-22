@@ -162,12 +162,42 @@ const heroPhotos = [
 
 export default function Home(props) {
     const [testimonialIdx, setTestimonialIdx] = React.useState(0);
+    const [showVendorModal, setShowVendorModal] = React.useState(false);
+    const [selectedCategory, setSelectedCategory] = React.useState(null);
+    const [formData, setFormData] = React.useState({ name: '', phone: '', email: '', business: '' });
+    const [formSubmitted, setFormSubmitted] = React.useState(false);
     React.useEffect(() => {
         const interval = setInterval(() => {
             setTestimonialIdx((i) => (i + 1) % testimonials.length);
         }, 5000);
         return () => clearInterval(interval);
     }, []);
+
+    const handleOpenModal = () => {
+        setShowVendorModal(true);
+        setSelectedCategory(null);
+        setFormSubmitted(false);
+        setFormData({ name: '', phone: '', email: '', business: '' });
+    };
+    const handleCloseModal = () => {
+        setShowVendorModal(false);
+        setSelectedCategory(null);
+        setFormSubmitted(false);
+        setFormData({ name: '', phone: '', email: '', business: '' });
+    };
+    const handleCategoryClick = (cat) => {
+        setSelectedCategory(cat);
+        setFormSubmitted(false);
+        setFormData({ name: '', phone: '', email: '', business: '' });
+    };
+    const handleFormChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        setFormSubmitted(true);
+        // Here you would send formData to your backend or API
+    };
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-pink-200 via-white to-pink-100 font-sans flex flex-col relative overflow-x-hidden">
@@ -205,10 +235,102 @@ export default function Home(props) {
                         <span className="absolute left-1/2 -bottom-1 w-0 group-hover:w-2/3 group-focus:w-2/3 h-1 bg-gradient-to-r from-rose-300 to-yellow-200 rounded-full transition-all duration-300 -translate-x-1/2"></span>
                     </a>
                 </div>
-                <button className="bg-gradient-to-r from-rose-400 to-pink-400 text-white px-7 py-2.5 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform border-2 border-pink-300 text-lg">
+                <button
+                    className="bg-gradient-to-r from-rose-400 to-pink-400 text-white px-7 py-2.5 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform border-2 border-pink-300 text-lg"
+                    onClick={handleOpenModal}
+                >
                     Become a Vendor
                 </button>
             </nav>
+            {/* Vendor Modal */}
+            {showVendorModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                    <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full relative animate-fade-in">
+                        <button
+                            className="absolute top-3 right-3 text-gray-500 hover:text-pink-500 text-2xl font-bold"
+                            onClick={handleCloseModal}
+                            aria-label="Close"
+                        >
+                            &times;
+                        </button>
+                        {!selectedCategory ? (
+                            <>
+                                <h2 className="text-2xl font-bold mb-6 text-center text-pink-700">Become a Vendor</h2>
+                                <div className="grid grid-cols-2 gap-4">
+                                    {categories.map((cat, idx) => (
+                                        <button
+                                            key={cat.name}
+                                            className="flex flex-col items-center p-4 border border-pink-200 rounded-xl hover:bg-pink-50 transition cursor-pointer"
+                                            onClick={() => handleCategoryClick(cat.name)}
+                                        >
+                                            <span>{cat.icon}</span>
+                                            <span className="mt-2 font-semibold text-gray-800">{cat.name}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <h2 className="text-xl font-bold mb-4 text-center text-pink-700">Become a Vendor for {selectedCategory}</h2>
+                                {formSubmitted ? (
+                                    <div className="text-green-600 text-center font-semibold py-6">Thank you! Your application has been submitted.</div>
+                                ) : (
+                                    <form className="flex flex-col gap-4" onSubmit={handleFormSubmit}>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleFormChange}
+                                            placeholder="Your Name"
+                                            className="border border-pink-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+                                            required
+                                        />
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleFormChange}
+                                            placeholder="Phone Number"
+                                            className="border border-pink-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+                                            required
+                                        />
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleFormChange}
+                                            placeholder="Email Address"
+                                            className="border border-pink-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+                                            required
+                                        />
+                                        <input
+                                            type="text"
+                                            name="business"
+                                            value={formData.business}
+                                            onChange={handleFormChange}
+                                            placeholder={`Business Name (${selectedCategory})`}
+                                            className="border border-pink-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
+                                            required
+                                        />
+                                        <button
+                                            type="submit"
+                                            className="bg-gradient-to-r from-pink-400 to-pink-500 text-white font-bold py-2 rounded-lg shadow hover:scale-105 transition-transform border border-pink-300 mt-2"
+                                        >
+                                            Submit
+                                        </button>
+                                    </form>
+                                )}
+                                <button
+                                    className="mt-4 text-pink-500 hover:underline text-sm"
+                                    onClick={() => setSelectedCategory(null)}
+                                >
+                                    &larr; Back to Categories
+                                </button>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
             {/* Hero Section: Dark green to black, spark gold gradient text, white buttons, gold/white motifs */}
             <header className="relative flex flex-col items-center justify-center min-h-[70vh] py-20 px-4 text-center overflow-hidden w-full">
                 {/* Dark green to black gradient background */}
